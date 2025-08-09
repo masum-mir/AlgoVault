@@ -370,8 +370,75 @@ A robust AVL Tree (self-balancing Binary Search Tree) implementation in Java tha
 | Traversal | O(n)            |
 
 -----------------------------------
- 
 
+# 📦 QuickSort  
+
+A straightforward and efficient implementation of the QuickSort algorithm for sorting integer arrays.
+
+> 🚀 Crafted with Logic & Love by **Masum** | Keep coding, keep learning ❤️
+---
+
+## 📌 Description
+
+QuickSort is a divide-and-conquer sorting algorithm that partitions the array around a pivot element and recursively sorts the sub-arrays. It generally performs faster than simple sorts like bubble sort or insertion sort, especially on large datasets.
+
+---
+
+## 🧮 Time Complexity
+
+| Case        | Time Complexity |
+|-------------|-----------------|
+| Best / Avg  | O(n log n)      |
+| Worst       | O(n²)           |
+
+---
+
+# 📦 BubbleSort  
+
+A simple implementation of the Bubble Sort algorithm to sort integer arrays in ascending order.
+
+> 🚀 Crafted with Logic & Love by **Masum** | Keep coding, keep learning ❤️
+---
+
+## 📌 Description
+
+Bubble Sort repeatedly swaps adjacent elements if they are in the wrong order. It continues passes through the list until no swaps are needed, making it a straightforward but less efficient sorting method for large datasets.
+
+---
+
+## 🧮 Time Complexity
+
+| Case        | Time Complexity |
+|-------------|-----------------|
+| Best        | O(n)            |
+| Average     | O(n²)           |
+| Worst       | O(n²)           |
+
+---
+
+# 📦 BinarySearch  
+
+A Java class implementing both iterative and recursive versions of the Binary Search algorithm on sorted arrays.
+
+> 🚀 Crafted with Logic & Love by **Masum** | Keep coding, keep learning ❤️
+---
+
+## 📌 Description
+
+Binary Search efficiently locates a target element in a sorted array by repeatedly dividing the search interval in half, drastically reducing the search time compared to linear search.
+
+---
+
+## 🧮 Time Complexity
+
+| Case    | Time Complexity |
+|---------|-----------------|
+| Best    | O(1)            |
+| Average | O(log n)        |
+| Worst   | O(log n)        |
+
+---
+ 
 ## ✨ Author
 **Masum**  
 Crafted with Logic & Love | *Keep coding, keep learning* 🚀
