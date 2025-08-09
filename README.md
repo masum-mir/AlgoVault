@@ -1,4 +1,4 @@
- # 📦 Java Array Data Structure
+ # 📦 Array Data Structure
 
 An **Array** implementation in Java with a wide range of operations for **mastering Data Structures & Algorithms** step-by-step.  
 This implementation includes **dynamic resizing**, multiple insertion and deletion methods, searching, sorting, reversing, and more.
@@ -49,7 +49,7 @@ This implementation includes **dynamic resizing**, multiple insertion and deleti
 
 ------------------------------------------------
 
-# 🔗 Singly Linked List in Java
+# 🔗 Singly Linked List 
 
 A **Singly Linked List** implementation in Java covering **core linked list operations** like insertion, deletion, searching, reversing, cycle detection, and merging sorted lists.
 
@@ -99,7 +99,7 @@ A **Singly Linked List** implementation in Java covering **core linked list oper
 
 ------------------------------------------------
 
-# 📚 Doubly Linked List in Java
+# 📚 Doubly Linked List  
 
 A clean and fully functional implementation of a **Doubly Linked List** in Java, featuring operations such as **insertion, deletion, search, size calculation, and bidirectional traversal**.  
 
