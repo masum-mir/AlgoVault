@@ -37,33 +37,48 @@ public class BinarySearchTree {
 
     // insert a value into BST
     public void insert(int data) {
-        root = insertRec(root, data);
-    }
-    private Node insertRec(Node root, int data) {
+        Node newData = new Node(data);
+        Node curr, parent;
 
-        if(root == null) {
-            return new Node(data);
+        if(root== null) {
+            root = newData;
+        } else {
+            curr = root;
+            while (true) {
+                parent = curr;
+                if(data < parent.data) {
+                    curr = curr.left;
+                    if(curr == null) {
+                        parent.left = newData;
+                        return;
+                    }
+                } else {
+                    curr = curr.right;
+                    if(curr==null) {
+                        parent.right = newData;
+                        return;
+                    }
+                }
+            }
         }
-        if(data < root.data) {
-            root.left = insertRec(root.left, data);
-        } else if(data > root.data) {
-            root.right = insertRec(root.right, data);
-        }
-        return root;
     }
 
     // search a value in BST
-    public boolean search(int data) {
-        return searchRec(root, data);
-    }
-    private boolean searchRec(Node root, int data) {
-        if(root==null) {
-            return false;
+    public Node search(int data) {
+        Node curr = root;
+        while(curr.data!=data) {
+            if(curr != null) {
+                if(curr.data > data) {
+                    curr = curr.left;
+                }else {
+                    curr = curr.right;
+                }
+                if(curr == null) {
+                    return null;
+                }
+            }
         }
-        if(root.data == data) {
-            return true;
-        }
-        return data < root.data ? searchRec(root.left, data): searchRec(root.right, data);
+        return curr;
     }
 
     // DFS
@@ -126,10 +141,57 @@ public class BinarySearchTree {
         return 1+Math.max(height(root.left), height(root.right));
     }
 
-    // delete node
-    public Node delete(int data) {
+    // delete recursive approach
+    public Node deleteRecursive(int data) {
         return delete(root, data);
     }
+    // delete iterative approach
+     public void delete(int data) {
+
+        if(root == null) return;
+
+        Node curr = root;
+        Node parent = null;
+
+        // find node
+        while(curr != null && curr.data != data) {
+            parent = curr;
+            if(data < curr.data) {
+                curr = curr.left;
+            } else {
+                curr = curr.right;
+            }
+        }
+
+        // case 1 - remove with one child or no child
+        if(curr.left == null || curr.right == null) {
+            Node child = curr.left != null ? curr.left : curr.right;
+            if(parent==null) {
+                root = child;
+            } else if(parent.left == curr) {
+                parent.left = child;
+            } else {
+                parent.right = child;
+            }
+        }
+        // case 2 - remove with two child
+        else {
+            Node succParent = curr;
+            Node succ = curr.right;
+            while (succ.left != null) {
+                succParent = succ;
+                succ = succ.left;
+            }
+            curr.data = succ.data;
+            if(succParent.left == succ) {
+                succParent.left = succ.right;
+            } else {
+                succParent.right = succ.right;
+            }
+        }
+    }
+
+    // delete recursivly
     private Node delete(Node root, int data) {
         if(root==null) return null;
 
@@ -341,7 +403,13 @@ public class BinarySearchTree {
         System.out.print("\nLevel-order Traversal: ");
         tree.levelOrderTraversal();
 
-        System.out.println("\nSearch 12: " + tree.search(12));
+        Node ifFind = tree.search(12);
+        if(ifFind!=null) {
+            System.out.println("\nItem is found: " + ifFind.data);
+        } else  {
+            System.out.println("\nItem is not found.");
+        }
+
         System.out.println("Min value: " + tree.minValue());
         System.out.println("Max value: " + tree.maxValue());
         System.out.println("Tree Height: " + tree.height());
@@ -350,6 +418,14 @@ public class BinarySearchTree {
 
         tree.delete(15);
         System.out.print("After deleting 15, In-order: ");
+        tree.inOrderTraversal();
+
+        tree.delete(3);
+        System.out.print("\nAfter deleting root node 3, In-order: ");
+        tree.inOrderTraversal();
+
+        tree.delete(17);
+        System.out.print("\nAfter deleting no child node 17, In-order: ");
         tree.inOrderTraversal();
 
         System.out.println("\nIs valid BST: " + tree.isBST());
